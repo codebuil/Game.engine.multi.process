@@ -2,7 +2,25 @@ import threading
 import random 
 import time
 import datetime
+scores=0
+class queque:
+    def __init__(self):
+        self.enable=False
+        
+    def releases(self):
+        self.enable=False
 
+
+    def gets(self):
+        enables=True
+        while enables:
+            if not self.enable:
+                self.enable=True
+                enables=False
+                return 0
+            else:
+                while not self.enable:
+                    pass
 class spoll:
     def __init__(self):
         self.lists=[]
@@ -39,11 +57,17 @@ class player:
 
 
     def game(self):
+        global queque1
+        global scores
         i=self.names
         n=random.randint(1,9)
         for m in range(n):
             self.printss(f"player:{i},x pos={m}")
+            queque1.gets()
+            scores+=100
+            self.printss(f"score:{scores}")
             self.sends()
+            queque1.releases()
             self.timers(1)
 
         self.printss(f"player:{i},is in is position")
@@ -62,7 +86,7 @@ class player:
 
 
     def printss(self,s):
-        self.s=self.s+s
+        self.s=self.s+s+"\n"
 
 
     def sends(self):
@@ -76,6 +100,7 @@ class player:
 print("\x1bc\x1b[43;30m")
 players=3
 t=[]
+queque1=queque()
 sss=spoll()
 for n in range(players):
     tt=player(n)
