@@ -74,15 +74,8 @@ class player:
         self.sends()
     
     def timers(self,s):
-        for n in range(s):
-            agora = datetime.datetime.now()
-            data_horas = agora.strftime("%S")
-            data_hora = agora.strftime("%S")
-            while(data_horas==data_hora):
-                agora = datetime.datetime.now()
-                data_horas = agora.strftime("%S")
-
-
+        time.sleep(s)
+ 
 
 
     def printss(self,s):
