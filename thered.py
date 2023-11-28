@@ -16,7 +16,6 @@ class queque:
         while enables:
             if not self.enable:
                 self.enable=True
-                enables=False
                 return 0
             else:
                 while not self.enable:
