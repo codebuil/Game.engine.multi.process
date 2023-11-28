@@ -3,6 +3,23 @@ import random
 import time
 import datetime
 scores=0
+class taskgest:
+    def __init__(self,players):
+        global sss
+        self.t=[]
+        for n in range(players):
+            tt=player(n)
+            self.t=self.t+[tt]
+
+        for n in range(players):
+            tt=self.t.pop()
+            tt.endgame()
+
+
+        sss.endss()
+        sss.endgame()
+
+
 class queque:
     def __init__(self):
         self.enable=False
@@ -96,17 +113,7 @@ class player:
 
 print("\x1bc\x1b[43;30m")
 players=3
-t=[]
+
 queque1=queque()
 sss=spoll()
-for n in range(players):
-    tt=player(n)
-    t=t+[tt]
-
-for n in range(players):
-    tt=t.pop()
-    tt.endgame()
-
-
-sss.endss()
-sss.endgame()
+gest=taskgest(players)
