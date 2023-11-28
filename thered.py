@@ -27,7 +27,7 @@ class spoll:
         self.ends=False
         self.tt=threading.Thread(target=self.agenda)
         self.tt.start()
-
+        
 
     def endss(self):
         self.ends=True
@@ -51,9 +51,10 @@ class player:
     def __init__(self,n):
         self.names=n
         self.s=""
+        self.counter=0
         self.tt=threading.Thread(target=self.game)
         self.tt.start()
- 
+        
 
 
     def game(self):
@@ -86,13 +87,17 @@ class player:
 
 
     def printss(self,s):
-        self.s=self.s+s+"\n"
+        if self.counter!=0:
+            self.s=self.s+"\n"
+        self.s=self.s+s
+        self.counter+=1
 
 
     def sends(self):
         global sss
         sss.prints(self.s[:])
         self.s=""
+        self.counter=0
         
     def endgame(self):
         self.tt.join()
